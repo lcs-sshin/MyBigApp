@@ -13,6 +13,7 @@ struct ContentView: View {
     @State private var selection = "History"
     
     var body: some View {
+        
         NavigationStack{
             
             VStack{
@@ -35,32 +36,35 @@ struct ContentView: View {
                 Text ("Herm-own-ninny")
                     .font(.caption)
                     .foregroundColor(.black)
-                
-        VStack {
-            Spacer()
-            Picker("Current Selection",  selection: $selection ) {
-                Text ("Characters") .tag("Characters")
-                Text ("Favourites") .tag("Favourites")
             }
-            .pickerStyle(.segmented)
-            
-           
-            }
-            }
-            
-        }
-        .padding()
-        .navigationTitle ("Hermione Granger")
-        .toolbar {
-            ToolbarItem(placement: .topBarLeading) {
-                Button {
-                } label: {
-                    Text("\(Image(systemName: "chevron.backward"))")
+            .padding()
+            .navigationTitle ("Hermione Granger")
+            .toolbar {
+                ToolbarItem(placement: .topBarLeading) {
+                    Button {
+                    } label: {
+                        Text("\(Image(systemName: "chevron.backward"))")
+                        
+                    }
+                    
+                    VStack {
+                        Picker("Current Selection",  selection: $selection ) {
+                            Text ("Characters") .tag("Characters")
+                            Text ("Favourites") .tag("Favourites")
+                        }
+                        .pickerStyle(.segmented)
+                        
+                        
+                    }
                 }
             }
         }
     }
 }
+        
+                
+    
+
 
 #Preview {
     ContentView()
