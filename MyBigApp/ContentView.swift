@@ -15,44 +15,46 @@ struct ContentView: View {
     var body: some View {
         
         NavigationStack{
-            
-            VStack{
+            VStack {
                 
-            }
-            
-            VStack(alignment: .leading, spacing:3){
-                Text ("ALSO KNOWN AS")
-                    .font(.caption2)
-                    .foregroundColor(.black)
-                Text("Hermy")
-                    .font(.caption)
-                    .foregroundColor(.black)
-                Text("Know-it-all")
-                    .font(.caption)
-                    .foregroundColor(.black)
-                Text("Miss Grant")
-                    .font(.caption)
-                    .foregroundColor(.black)
-                Text ("Herm-own-ninny")
-                    .font(.caption)
-                    .foregroundColor(.black)
-            }
-            .padding()
-            .navigationTitle ("Hermione Granger")
-            .toolbar {
-                ToolbarItem(placement: .topBarLeading) {
-                    Button {
-                    } label: {
-                        Text("\(Image(systemName: "chevron.backward"))")
-                        
-                    }
+                VStack(alignment: .leading, spacing:0){
+                    Text ("ALSO KNOWN AS")
+                        .font(.caption2)
+                        .foregroundColor(.black)
+                    Text("Hermy")
+                        .font(.caption)
+                        .foregroundColor(.black)
+                    Text("Know-it-all")
+                        .font(.caption)
+                        .foregroundColor(.black)
+                    Text("Miss Grant")
+                        .font(.caption)
+                        .foregroundColor(.black)
+                    Text ("Herm-own-ninny")
+                        .font(.caption)
+                        .foregroundColor(.black)
+                }
+                .padding()
+                Spacer()
+                Picker("Current Selection",  selection: $selection ) {
+                    Text ("Characters") .tag("Characters")
+                    Text ("Favourites") .tag("Favourites")
+                }
+                .pickerStyle(.segmented)
+                
+                VStack{
                     
-                    VStack {
-                        Picker("Current Selection",  selection: $selection ) {
-                            Text ("Characters") .tag("Characters")
-                            Text ("Favourites") .tag("Favourites")
+                }
+              
+                .padding()
+                .navigationTitle ("Hermione Granger")
+                .toolbar {
+                    ToolbarItem(placement: .topBarLeading) {
+                        Button {
+                        } label: {
+                            Text("\(Image(systemName: "chevron.backward"))")
+                            
                         }
-                        .pickerStyle(.segmented)
                         
                         
                     }
@@ -61,6 +63,7 @@ struct ContentView: View {
         }
     }
 }
+
         
                 
     
