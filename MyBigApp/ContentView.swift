@@ -5,17 +5,24 @@
 //  Created by zimmer_h on 3/1/26.
 //
 
+
 import SwiftUI
 
 struct ContentView: View {
+    @State private var selection = "History"
+    
     var body: some View {
+        NavigationStack{
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            Picker("Current Selection",  selection: $selection ) {
+                Text ("Characters") .tag("Characters")
+                Text ("Favourites") .tag("Favourites")
+            }
+            .pickerStyle(.segmented)
+            }
         }
         .padding()
+        .navigationTitle ("Hermione Granger")
     }
 }
 
