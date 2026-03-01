@@ -14,15 +14,26 @@ struct ContentView: View {
     var body: some View {
         NavigationStack{
         VStack {
+            Spacer()
+            
             Picker("Current Selection",  selection: $selection ) {
                 Text ("Characters") .tag("Characters")
                 Text ("Favourites") .tag("Favourites")
             }
             .pickerStyle(.segmented)
             }
+            
         }
         .padding()
         .navigationTitle ("Hermione Granger")
+        .toolbar {
+            ToolbarItem(placement: .topBarLeading) {
+                Button {
+                } label: {
+                    Text("\(Image(systemName: "chevron.backward"))")
+                }
+            }
+        }
     }
 }
 
